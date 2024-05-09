@@ -1,0 +1,60 @@
+html {
+  background-color: aqua;
+}
+h1 {
+  text-align: center;
+}
+.container {
+  display: flex;
+  max-width: 250px;
+  margin: auto;
+}
+
+.calculator {
+  background-color: white;
+  height: 275px;
+  width: 275px;
+  margin: auto;
+  border: 1px solid black;
+}
+.display {
+  border-bottom: 1px solid black;
+  height: 30px;
+  display: flex;
+  padding-right: 6px;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: right;
+  margin-bottom: 16px;
+}
+.pad {
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pad-container {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.operate-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 6px;
+  margin-left: 8px;
+}
+.operate {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  background-color: grey;
+}
