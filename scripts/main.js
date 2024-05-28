@@ -53,19 +53,19 @@ function populate(e) {
       switch (operator) {
         case 'add':
           result = add(num1, num2);
-          display.innerHTML = add(num1, num2).toFixed(4);
+          display.innerHTML = Math.round(add(num1, num2));
           break;
         case 'subtract':
           result = subtract(num1, num2);
-          display.innerHTML = subtract(num1, num2).toFixed(4);
+          display.innerHTML = Math.round(subtract(num1, num2));
           break;
         case 'multiply':
           result = multiply(num1, num2);
-          display.innerHTML = multiply(num1, num2).toFixed(4);
+          display.innerHTML = Math.round(multiply(num1, num2));
           break;
         case 'divide':
           result = divide(num1, num2);
-          display.innerHTML = divide(num1, num2).toFixed(4);
+          display.innerHTML = Math.round(divide(num1, num2));
           break;
         default:
           console.log('error');
@@ -81,27 +81,39 @@ function populate(e) {
   }
 
   if (this.id === 'equals') {
-    num1 = Number(num1);
-    num2 = Number(num2);
-    switch (operator) {
-      case 'add':
-        display.innerHTML = add(num1, num2).toFixed(4);
-        break;
-      case 'subtract':
-        display.innerHTML = subtract(num1, num2).toFixed(4);
-        break;
-      case 'multiply':
-        display.innerHTML = multiply(num1, num2).toFixed(4);
-        break;
-      case 'divide':
-        display.innerHTML = divide(num1, num2).toFixed(4);
-        break;
-      default:
-        console.log('error');
+    if (num1 === '' || num2 === '' || operator === '') {
+      display.innerHTML = 'Incomplete';
+      num1 = '';
+      num2 = '';
+      operator = '';
+    } else {
+      num1 = Number(num1);
+      num2 = Number(num2);
+      switch (operator) {
+        case 'add':
+          display.innerHTML = Math.round(add(num1, num2));
+          break;
+        case 'subtract':
+          display.innerHTML = Math.round(subtract(num1, num2));
+          break;
+        case 'multiply':
+          display.innerHTML = Math.round(multiply(num1, num2));
+          break;
+        case 'divide':
+          if (num1 === 0 || num2 === 0) {
+            display.innerHTML = "Hey don't crash the calculator";
+          } else {
+            display.innerHTML = Math.round(divide(num1, num2));
+          }
+
+          break;
+        default:
+          console.log('error');
+      }
+      num1 = '';
+      num2 = '';
+      operator = '';
     }
-    num1 = '';
-    num2 = '';
-    operator = '';
   } else if (this.id === 'clear') {
     num1 = '';
     num2 = '';
